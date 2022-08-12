@@ -32,6 +32,13 @@ pipeline {
               }
             }
           }
+          stage("uploading artifacts to jfrog"){
+            steps{
+                script{
+                    sh curl -X PUT -u shanmukha2342@gmail.com:Demu123@ -T springbootApp.jar "https://demuravi.jfrog.io/artifactory/ravi/"
+                }
+            }
+        }
         stage("Build image") {
             steps {
                 script {
