@@ -35,7 +35,7 @@ pipeline {
           stage("uploading artifacts to jfrog"){
             steps{
                 script{
-                    sh """curl -X PUT -u ravi:Ravi123@ -T springbootApp.jar https://demuravi.jfrog.io/artifactory/ravi/"""
+                    sh "curl -X PUT -u ravi:Ravi123@ -T springbootApp.jar https://demuravi.jfrog.io/artifactory/ravi/springbootApp.jar"
                 }
             }
         }
