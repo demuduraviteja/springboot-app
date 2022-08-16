@@ -21,7 +21,7 @@ pipeline {
         stage('quality analysis'){
             steps{
                 withSonarQubeEnv('SonarQube'){
-                sh "mvn sonar:sonar"
+                sh "mvn clean sonar:sonar"
                 }
             }
         }
