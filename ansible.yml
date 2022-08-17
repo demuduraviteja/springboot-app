@@ -1,0 +1,7 @@
+- name: copyModule
+  hosts: ubuntu
+  tasks:
+   - name: copying the war file.
+     ansible.builtin.copy:
+       src: /var/lib/jenkins/workspace/myekspipelinejob/target/springbootApp.jar
+       dest: /var/lib/tomcat9/webapps
