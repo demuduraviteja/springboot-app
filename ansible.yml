@@ -1,5 +1,6 @@
 - name: copyModule
   hosts: tomcat
+  become: true
   tasks:
    - name: copying the war file.
      ansible.builtin.copy:
