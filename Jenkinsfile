@@ -42,7 +42,8 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    docker.build registry
+                    sh "docker build -t my-docker-repo ."
+                    sh "docker tag my-docker-repo:latest registry:0.0.${env.BUILD_NUMBER}"
                 }
             }
         }
@@ -50,7 +51,7 @@ pipeline {
             steps {
                 script {
                     sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 651003575209.dkr.ecr.ap-south-1.amazonaws.com"
-                    sh "docker push 651003575209.dkr.ecr.ap-south-1.amazonaws.com/my-docker-repo:latest"
+                    sh "docker push registry:0.0.${env.BUILD_NUMBER}"
                 }
             }
         }
